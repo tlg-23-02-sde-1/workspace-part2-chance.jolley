@@ -20,6 +20,7 @@ class TelevisionClient {
         Set<Television> tvs = new HashSet<>();
         tvs.add(tvA);
         tvs.add(tvB);
+
         System.out.println("The size of the set is: " + tvs.size());
 
 
