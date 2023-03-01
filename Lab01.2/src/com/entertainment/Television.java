@@ -44,28 +44,23 @@ public class Television implements Comparable<Television> {
         this.volume = volume;
     }
 
-    @Override
-    public int compareTo(Television other) {
-        return this.getBrand().compareTo(other.getBrand());
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        // if I am the same physical object as obj
+//        if (this == obj) return true;
+//        // if obj is null OR I and obj are not the same type
+//        if (obj == null || this.getClass() != obj.getClass()) return false;
+//        Television that = (Television) obj;
+//        return this.getVolume() == that.getVolume() &&
+//                Objects.equals(getBrand(), that.getBrand());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getBrand(), getVolume());
+//    }
 
     @Override
-    public boolean equals(Object obj) {
-        // if I am the same physical object as obj
-        if (this == obj) return true;
-        // if obj is null OR I and obj are not the same type
-        if (obj == null || this.getClass() != obj.getClass()) return false;
-        Television that = (Television) obj;
-        return this.getVolume() == that.getVolume() &&
-                Objects.equals(getBrand(), that.getBrand());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getBrand(), getVolume());
-    }
-
-    /* @Override
     public int hashCode() {
 //        return getBrand().length() +getVolume();
 //        we can use java.util.Objects to help us create a "scientifically correct" hash function,
@@ -84,7 +79,17 @@ public class Television implements Comparable<Television> {
         }
 
         return result;
-    }*/
+    }
+
+    @Override
+    public int compareTo(Television other) {
+        int result = this.getBrand().compareTo(other.getBrand());
+
+        if (result == 0 ) { //tied on brand, so break the tie by volume
+            result = Integer.compare(this.getVolume(), other.getVolume());
+        }
+        return result;
+    }
 
     @Override
     public String toString() {
