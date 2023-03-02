@@ -223,6 +223,12 @@ public class InMemoryCatalog implements Catalog {
      */
 
 
+    public void dump(Collection<MusicItem> items) {
+        for (MusicItem item : items) {
+            System.out.println(item);
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder(getClass().getSimpleName() + ": \n");

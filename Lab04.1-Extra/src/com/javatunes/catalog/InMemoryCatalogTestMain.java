@@ -6,7 +6,7 @@
  * Copyright LearningPatterns Inc.
  */
 
-package com.javatunes.catalog.test;
+package com.javatunes.catalog;
 
 import com.javatunes.catalog.Catalog;
 import com.javatunes.catalog.InMemoryCatalog;
@@ -15,7 +15,7 @@ import com.javatunes.catalog.MusicItem;
 
 import java.util.Collection;
 
-class InMemoryCatalogTest {
+class InMemoryCatalogTestMain {
 
     /*
      * One by one, complete each test method below, and then "activate" it by
@@ -26,7 +26,7 @@ class InMemoryCatalogTest {
      */
     public static void main(String[] args) {
         //testFindById();
-       //testFindByKeyword();
+        //testFindByKeyword();
         //testFindByCategory();
         // testSize();
         // testGetAll();
@@ -96,5 +96,7 @@ class InMemoryCatalogTest {
     }
 
     private static void testGetAll() {
+        InMemoryCatalog catalog = new InMemoryCatalog();
+        catalog.dump(catalog.getAll());
     }
 }
