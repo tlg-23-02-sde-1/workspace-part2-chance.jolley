@@ -14,6 +14,8 @@ import static org.junit.Assert.*;
 
 public class IRSEnumTest {
 
+
+
     @Test
     public void normalClientUsage() {
         IRSEnum irs = IRSEnum.getInstance();  // client can also say "IRSEnum.INSTANCE"
@@ -26,6 +28,11 @@ public class IRSEnumTest {
      */
     @Test
     public void getInstance_shouldReturnSameInstance_everyTime() {
+        IRSEnum irs1 = IRSEnum.getInstance();
+        IRSEnum irs2 = IRSEnum.getInstance();
+        assertTrue(irs1 == irs2);
+        assertSame(irs1,irs2);
+
 
     }
 
@@ -36,6 +43,8 @@ public class IRSEnumTest {
      */
     @Test
     public void classload_triggersInstanceCreation() {
-        // TODO: call IRSEnum.touch() and note the output
+        // call IRSEnum.touch() and note the output
+
+        IRSEnum.touch();
     }
 }
