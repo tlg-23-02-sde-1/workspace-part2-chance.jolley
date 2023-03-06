@@ -11,7 +11,7 @@ package com.javatunes.billing;
 /**
  * Online orders are tax-free!
  * 
- * TODO: implement this algorithm.
+ *  implement this algorithm.
  */
 public class OnlineTax implements TaxCalculator {
 
