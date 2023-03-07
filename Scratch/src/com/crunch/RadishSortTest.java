@@ -1,6 +1,8 @@
 package com.crunch;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 class RadishSortTest {
@@ -12,18 +14,42 @@ class RadishSortTest {
         radishes.add(new Radish("black", 2.2, 4.2, 0));
         radishes.add(new Radish("white", 1.8, 1.5, 7 ));
 
+
+        System.out.println(" original list: ");
         dump(radishes);
         System.out.println();
+
         //sort by natural order
+        System.out.println(" sort by natural order: ");
         radishes.sort(null);  //passing null means natural order
         dump(radishes);
         System.out.println();
+
         //sort by color, via an instance of RadishColorComparator
+        System.out.println(" sort by color: ");
         radishes.sort(new RadishColorComparator());
         dump(radishes);
         System.out.println();
 
+        System.out.println("Sort by Taillength, via anonymous class:");
+        radishes.sort(new Comparator<Radish>() {
+            @Override
+            public int compare(Radish r1, Radish r2) {
+                return Double.compare(r1.getTailLength(), r2.getTailLength());
+            }
+        } );
+        dump(radishes);
+        System.out.println();
 
+        System.out.println("Sort by Sprouts, via anonynmous class:");
+        radishes.sort(new Comparator<Radish>() {
+            @Override
+            public int compare(Radish r1, Radish r2) {
+                return Double.compare(r1.getSprouts(), r2.getSprouts());
+            }
+        } );
+        dump(radishes);
+        System.out.println();
     }
 
     private static void dump(List<Radish> radishList) {
