@@ -13,9 +13,27 @@ public class EmployeeTest {
 
     @Before
     public void setUp() {
-        emp1 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
-        emp2 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
+        // emp1 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
+        // emp2 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
+
+        emp1 = getEmployee();
+        emp2 = getEmployee();
     }
+
+    private Employee getEmployee() {
+        return new Employee("Jack", Date.valueOf("2020-10-10")) {
+            public double pay() {
+                return 0;
+            }
+
+            public double payTaxes() {
+                return 0;
+            }
+
+            ;
+        };
+    }
+
 
     @Test
     public void hashCode_shouldBeEqual_whenEqualObjects() {
